@@ -50,12 +50,31 @@ def ask_question(question: str):
 
 
 if __name__ == "__main__":
-    # Run full research pipeline
-    run_research("AI semiconductor market in India")
+    print("🤖 Deep Research AI Agent")
+    print("="*40)
+    print("Powered by LangGraph + Groq + Serper + HuggingFace + ChromaDB")
+    print("="*40)
 
-    # Ask questions against stored report
+    # Get query from user
+    query = input("\n🔍 Enter your research topic: ").strip()
+    if not query:
+        query = "AI semiconductor market in India"
+        print(f"No input given. Using default: {query}")
+
+    # Run full research pipeline
+    run_research(query)
+
+    # Interactive Q&A loop
     print("\n" + "="*60)
-    print("💬 QUERYING STORED RESEARCH")
+    print("💬 ASK QUESTIONS ABOUT YOUR RESEARCH")
+    print("    Type 'exit' to quit")
     print("="*60)
-    ask_question("What are the government policies for semiconductors?")
-    ask_question("What is the market size and growth rate?")
+
+    while True:
+        question = input("\n❓ Your question: ").strip()
+        if question.lower() in ["exit", "quit", "q"]:
+            print("\n👋 Exiting. Your report is saved in research_report.md")
+            break
+        if not question:
+            continue
+        ask_question(question)

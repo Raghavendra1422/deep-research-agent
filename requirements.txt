@@ -1,0 +1,9 @@
+langgraph
+langchain
+langchain-google-genai
+python-dotenv
+requests
+beautifulsoup4
+chromadb
+sentence-transformers
+pymupdf
